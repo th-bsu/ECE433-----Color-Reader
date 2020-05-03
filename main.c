@@ -38,18 +38,16 @@ int main(void)
 
 	// TH: enables interrupts globally.
 	SREG  |= (1<<SREG_I);
-
+	
 	/////////////////////////////////////////////////////
 	
 	// TH: writes particular pattern to display.
 	write_pattern_0_();
 
 	/////////////////////////////////////////////////////
+	
+	// TH: initializes coordinates.
 
-	// TH: writes first row.
-	// TH: writes letters (7x5), pixel-wise.
-
-	/*
 	row_s_high_=ST77XX_ROW_S_HIGH_;
 	row_s_low_ =ST77XX_ROW_S_LOW_MIN_;
 	row_e_high_=ST77XX_ROW_E_HIGH_;
@@ -59,92 +57,8 @@ int main(void)
 	col_s_low_ =ST77XX_COL_S_LOW_MIN_ ;
 	col_e_high_=ST77XX_COL_E_HIGH_;
 	col_e_low_ =col_s_low_+4;
-	write_char_(13, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(14, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(15, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(16, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(17, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(18, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(19, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(20, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(21, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(22, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(23, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(24, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(25, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	*/
 
 	/////////////////////////////////////////////////////
-	
-	row_s_high_=ST77XX_ROW_S_HIGH_;
-	row_s_low_ =ST77XX_ROW_S_LOW_MIN_;
-	row_e_high_=ST77XX_ROW_E_HIGH_;
-	row_e_low_ =row_s_low_+6;
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =ST77XX_COL_S_LOW_MIN_ ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
 
 	/*
 	// TH: writes next row.
@@ -176,103 +90,10 @@ int main(void)
 	
 	/////////////////////////////////////////////////////
 
-	/*
-	// TH: writes last row.
-
-	row_s_high_=ST77XX_ROW_S_HIGH_;
-	row_s_low_ =ST77XX_ROW_E_LOW_MAX_PORTRAIT_;
-	row_e_high_=ST77XX_ROW_E_HIGH_;
-	row_e_low_ =row_s_low_+6;
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =ST77XX_COL_S_LOW_MIN_ ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(13, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(14, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(15, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(16, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(17, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(18, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(19, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(20, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(21, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(22, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(23, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(24, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-
-	col_s_high_=ST77XX_COL_S_HIGH_;
-	col_s_low_ =col_e_low_+2 ;
-	col_e_high_=ST77XX_COL_E_HIGH_;
-	col_e_low_ =col_s_low_+4;
-	write_char_(25, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
-	*/
-
-	;
-
-	/////////////////////////////////////////////////////
-
 	if(DEBUG_TFT_CTC_==1){
 		// TH: 16MHz, no pre-scaling.
 		TCCR1B |= (1<<CS10);
 	}//if DEBUG_TFT_CTC_.
-
-	
 
 	// TH: polls interrupts.
     while (1){
@@ -283,6 +104,13 @@ int main(void)
 
 			{
 				PCprint("\n[Lab 11]: Device Type: ");
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				// TH: reads virtual register.
 				uint8_t hw_low_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_HW_VERSION_LOW_);
 
@@ -292,15 +120,33 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "DEVICE";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_low_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 			}
 
 			{
 				PCprint("\n[Lab 11]: Hardware Version: ");
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				// TH: reads virtual register.
 				uint8_t hw_low_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_HW_VERSION_HIGH_);
 
@@ -310,10 +156,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "HARDWARE";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_low_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -325,6 +182,12 @@ int main(void)
 		else if(val==F_CHAR_){
 			
 			if(DEBUG_) PCprint("\n[Lab 11]: Read Firmware Version Started.");
+
+			// TH: experimental: disables LED control.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+			);
 
 			{
 				PCprint("\n[Lab 11]: Low Address Byte: ");
@@ -355,10 +218,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "FIRMWARE";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  |= (((uint32_t)hw_low_)<<8);
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -371,6 +245,12 @@ int main(void)
 			
 			if(DEBUG_) PCprint("\n[Lab 11]: Read Control Register Started.");
 
+			// TH: experimental: disables LED control.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+			);
+
 			{
 				PCprint("\n[Lab 11]: Control Setup: ");
 				// TH: reads virtual register.
@@ -382,10 +262,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "CONTROLREG";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_low_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -398,6 +289,12 @@ int main(void)
 			
 			if(DEBUG_) PCprint("\n[Lab 11]: Read Integration Time Started.");
 
+			// TH: experimental: disables LED control.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+			);
+
 			{
 				PCprint("\n[Lab 11]: Integration Time: ");
 				// TH: reads virtual register.
@@ -409,10 +306,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "INTEGRATION";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_low_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -425,6 +333,12 @@ int main(void)
 			
 			if(DEBUG_) PCprint("\n[Lab 11]: Read Temperature Started.");
 
+			// TH: experimental: disables LED control.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+			);
+
 			{
 				PCprint("\n[Lab 11]: Device Temperature: ");
 				// TH: reads virtual register.
@@ -436,10 +350,22 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "DEVICETEMP";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_low_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 
 			}
 
@@ -452,6 +378,12 @@ int main(void)
 			
 			if(DEBUG_) PCprint("\n[Lab 11]: Read LED Control Started.");
 
+			// TH: experimental: disables LED control.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+			);
+
 			{
 				PCprint("\n[Lab 11]: LED Control: ");
 				// TH: reads virtual register.
@@ -463,10 +395,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "LEDCONTROL";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_low_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -514,11 +457,37 @@ int main(void)
 			*/
 			{
 				PCprint("\n[Lab 11]: Raw V: ");
-				
+
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t  hw_low_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
 				uint8_t  hw_high_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_HIGH_);
 				uint16_t hw_all_  = (((uint16_t)hw_low_)<<8) | ((uint16_t)hw_high_);
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
 
 				uint8_t i;
 				char tmpstr[10];
@@ -526,10 +495,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "VRAW";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -611,6 +591,26 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Calibrated V: ");
 
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t hw_0_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_0_);
 				uint8_t hw_1_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_1_);
@@ -618,6 +618,13 @@ int main(void)
 				uint8_t hw_3_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_3_);
 
 				uint32_t hw_all_ = (((uint32_t)hw_0_)<<24) | (((uint32_t)hw_1_)<<16) | (((uint32_t)hw_2_)<<8) | (((uint32_t)hw_3_)<<0);
+				
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				{
 					uint8_t i;
 					char tmpstr[20];
@@ -626,18 +633,33 @@ int main(void)
 					while(tmpstr[i]) uart_send_(tmpstr[i++]);
 				}
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "VCAL";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 
-				/*
 				PCprint("\n[Lab 11]: Calibrated V (float): ");
 				
-				// TH: experimental.
+				// TH: converts hex to float.
 				hw_all__ = convert_hex_to_float_(hw_all_);
 				print_calibrated_(hw_all__);
-				*/
+				
+				ptr_str_ = "VCAL FLOAT";
+				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+				number_  = (uint32_t) floor(hw_all__);
+				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 			}
 
 			if(DEBUG_){
@@ -674,10 +696,36 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Raw B: ");
 				
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t  hw_low_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_RAW_LOW_);
 				uint8_t  hw_high_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_RAW_HIGH_);
 				uint16_t hw_all_  = (((uint16_t)hw_low_)<<8) | ((uint16_t)hw_high_);
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
 
 				uint8_t i;
 				char tmpstr[10];
@@ -685,10 +733,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "BRAW";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -726,6 +785,26 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Calibrated B: ");
 
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t hw_0_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_CAL_ADDR_0_);
 				uint8_t hw_1_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_CAL_ADDR_1_);
@@ -733,6 +812,13 @@ int main(void)
 				uint8_t hw_3_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_CAL_ADDR_3_);
 				
 				uint32_t hw_all_ = (((uint32_t)hw_0_)<<24) | (((uint32_t)hw_1_)<<16) | (((uint32_t)hw_2_)<<8) | (((uint32_t)hw_3_)<<0);
+				
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				{
 					uint8_t i;
 					char tmpstr[20];
@@ -741,18 +827,33 @@ int main(void)
 					while(tmpstr[i]) uart_send_(tmpstr[i++]);
 				}
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "BCAL";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 
-				/*
 				PCprint("\n[Lab 11]: Calibrated B (float): ");
-
-				// TH: experimental.
+				
+				// TH: converts hex to float.
 				hw_all__ = convert_hex_to_float_(hw_all_);
 				print_calibrated_(hw_all__);
-				*/
+				
+				ptr_str_ = "BCAL FLOAT";
+				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+				number_  = (uint32_t) floor(hw_all__);
+				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 			}
 
 			if(DEBUG_){
@@ -789,10 +890,36 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Raw G: ");
 				
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t  hw_low_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_RAW_LOW_);
 				uint8_t  hw_high_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_RAW_HIGH_);
 				uint16_t hw_all_  = (((uint16_t)hw_low_)<<8) | ((uint16_t)hw_high_);
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
 
 				uint8_t i;
 				char tmpstr[10];
@@ -800,10 +927,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "GRAW";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -841,6 +979,26 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Calibrated G: ");
 
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t hw_0_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_CAL_ADDR_0_);
 				uint8_t hw_1_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_CAL_ADDR_1_);
@@ -848,6 +1006,13 @@ int main(void)
 				uint8_t hw_3_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_CAL_ADDR_3_);
 				
 				uint32_t hw_all_ = (((uint32_t)hw_0_)<<24) | (((uint32_t)hw_1_)<<16) | (((uint32_t)hw_2_)<<8) | (((uint32_t)hw_3_)<<0);
+				
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				{
 					uint8_t i;
 					char tmpstr[20];
@@ -856,18 +1021,33 @@ int main(void)
 					while(tmpstr[i]) uart_send_(tmpstr[i++]);
 				}
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "GCAL";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 
-				/*
 				PCprint("\n[Lab 11]: Calibrated G (float): ");
-
-				// TH: experimental.
+				
+				// TH: converts hex to float.
 				hw_all__ = convert_hex_to_float_(hw_all_);
 				print_calibrated_(hw_all__);
-				*/
+				
+				ptr_str_ = "GCAL FLOAT";
+				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+				number_  = (uint32_t) floor(hw_all__);
+				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 			}
 
 			if(DEBUG_){
@@ -904,10 +1084,36 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Raw Y: ");
 				
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t  hw_low_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_RAW_LOW_);
 				uint8_t  hw_high_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_RAW_HIGH_);
 				uint16_t hw_all_  = (((uint16_t)hw_low_)<<8) | ((uint16_t)hw_high_);
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
 
 				uint8_t i;
 				char tmpstr[10];
@@ -915,10 +1121,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "YRAW";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -956,6 +1173,26 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Calibrated Y: ");
 
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t hw_0_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_CAL_ADDR_0_);
 				uint8_t hw_1_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_CAL_ADDR_1_);
@@ -963,6 +1200,13 @@ int main(void)
 				uint8_t hw_3_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_CAL_ADDR_3_);
 				
 				uint32_t hw_all_ = (((uint32_t)hw_0_)<<24) | (((uint32_t)hw_1_)<<16) | (((uint32_t)hw_2_)<<8) | (((uint32_t)hw_3_)<<0);
+				
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				{
 					uint8_t i;
 					char tmpstr[20];
@@ -970,19 +1214,34 @@ int main(void)
 					i=0;
 					while(tmpstr[i]) uart_send_(tmpstr[i++]);
 				}
+				
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
 
 				ptr_str_ = "YCAL";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 
-				/*
 				PCprint("\n[Lab 11]: Calibrated Y (float): ");
-
-				// TH: experimental.
+				
+				// TH: converts hex to float.
 				hw_all__ = convert_hex_to_float_(hw_all_);
 				print_calibrated_(hw_all__);
-				*/
+				
+				ptr_str_ = "YCAL FLOAT";
+				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+				number_  = (uint32_t) floor(hw_all__);
+				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 			}
 
 			if(DEBUG_){
@@ -1019,10 +1278,36 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Raw O: ");
 				
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t  hw_low_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_RAW_LOW_);
 				uint8_t  hw_high_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_RAW_HIGH_);
 				uint16_t hw_all_  = (((uint16_t)hw_low_)<<8) | ((uint16_t)hw_high_);
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
 
 				uint8_t i;
 				char tmpstr[10];
@@ -1030,10 +1315,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "ORAW";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -1071,6 +1367,26 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Calibrated O: ");
 
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t hw_0_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_CAL_ADDR_0_);
 				uint8_t hw_1_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_CAL_ADDR_1_);
@@ -1078,6 +1394,13 @@ int main(void)
 				uint8_t hw_3_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_CAL_ADDR_3_);
 				
 				uint32_t hw_all_ = (((uint32_t)hw_0_)<<24) | (((uint32_t)hw_1_)<<16) | (((uint32_t)hw_2_)<<8) | (((uint32_t)hw_3_)<<0);
+				
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				{
 					uint8_t i;
 					char tmpstr[20];
@@ -1086,18 +1409,33 @@ int main(void)
 					while(tmpstr[i]) uart_send_(tmpstr[i++]);
 				}
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "OCAL";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 
-				/*
 				PCprint("\n[Lab 11]: Calibrated O (float): ");
-
-				// TH: experimental.
+				
+				// TH: converts hex to float.
 				hw_all__ = convert_hex_to_float_(hw_all_);
 				print_calibrated_(hw_all__);
-				*/
+				
+				ptr_str_ = "OCAL FLOAT";
+				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+				number_  = (uint32_t) floor(hw_all__);
+				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 			}
 
 			if(DEBUG_){
@@ -1134,10 +1472,36 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Raw R: ");
 				
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t  hw_low_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_RAW_LOW_);
 				uint8_t  hw_high_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_RAW_HIGH_);
 				uint16_t hw_all_  = (((uint16_t)hw_low_)<<8) | ((uint16_t)hw_high_);
+
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
 
 				uint8_t i;
 				char tmpstr[10];
@@ -1145,10 +1509,21 @@ int main(void)
 				i=0;
 				while(tmpstr[i]) uart_send_(tmpstr[i++]);
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "RRAW";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
 
 			}
 
@@ -1186,6 +1561,26 @@ int main(void)
 			{
 				PCprint("\n[Lab 11]: Calibrated R: ");
 
+				// TH: turns TFT LCD OFF for now.
+				timer1_OC1A_disabled_low_();
+
+				// TH: experimental: high current limit.
+				// TH: up to 100mA -> more precise.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+				| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+				);
+
+				// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+				as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+				// TH: waits for sensor data to be ready.
+				while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
 				// TH: reads virtual register.
 				uint8_t hw_0_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_CAL_ADDR_0_);
 				uint8_t hw_1_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_CAL_ADDR_1_);
@@ -1193,6 +1588,13 @@ int main(void)
 				uint8_t hw_3_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_CAL_ADDR_3_);
 
 				uint32_t hw_all_ = (((uint32_t)hw_0_)<<24) | (((uint32_t)hw_1_)<<16) | (((uint32_t)hw_2_)<<8) | (((uint32_t)hw_3_)<<0);
+				
+				// TH: experimental: disables LED control.
+				as7262_write_virtual_(
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+				I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+				);
+
 				{
 					uint8_t i;
 					char tmpstr[20];
@@ -1201,18 +1603,33 @@ int main(void)
 					while(tmpstr[i]) uart_send_(tmpstr[i++]);
 				}
 
+				// TH: lits TFT LCD unconditionally.
+				timer1_OC1A_disabled_high_();
+
 				ptr_str_ = "RCAL";
 				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 				number_  = (uint32_t) hw_all_;
 				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
 
-				/*
 				PCprint("\n[Lab 11]: Calibrated R (float): ");
-
-				// TH: experimental.
+				
+				// TH: converts hex to float.
 				hw_all__ = convert_hex_to_float_(hw_all_);
 				print_calibrated_(hw_all__);
-				*/
+				
+				ptr_str_ = "RCAL FLOAT";
+				write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+				number_  = (uint32_t) floor(hw_all__);
+				write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+				// TH: starts TIMER 1 for power considerations.
+				TC1init();
+
+				if(DEBUG_TFT_CTC_==1){
+					// TH: 16MHz, no pre-scaling.
+					TCCR1B |= (1<<CS10);
+				}//if DEBUG_TFT_CTC_.
+
 			}
 
 			if(DEBUG_){
@@ -1230,6 +1647,370 @@ int main(void)
 			val = 0;
 
 		}//if M_CHAR_.
+
+		else if(val==N_CHAR_){
+			
+			if(DEBUG_) PCprint("\n[Lab 11]: Read Raw ALL Started.");
+
+			uint8_t  hw_low_v_  = 0;
+			uint8_t  hw_high_v_ = 0;
+			uint16_t hw_all_v_  = 0;
+			uint8_t  hw_low_b_  = 0;
+			uint8_t  hw_high_b_ = 0;
+			uint16_t hw_all_b_  = 0;
+			uint8_t  hw_low_g_  = 0;
+			uint8_t  hw_high_g_ = 0;
+			uint16_t hw_all_g_  = 0;
+			uint8_t  hw_low_y_  = 0;
+			uint8_t  hw_high_y_ = 0;
+			uint16_t hw_all_y_  = 0;
+			uint8_t  hw_low_o_  = 0;
+			uint8_t  hw_high_o_ = 0;
+			uint16_t hw_all_o_  = 0;
+			uint8_t  hw_low_r_  = 0;
+			uint8_t  hw_high_r_ = 0;
+			uint16_t hw_all_r_  = 0;
+
+			// TH: turns TFT LCD OFF for now.
+			timer1_OC1A_disabled_low_();
+
+			// TH: experimental: high current limit.
+			// TH: up to 100mA -> more precise.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+			| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+			| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+			| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+			);
+
+			// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+			while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+			as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+
+			// TH: waits for sensor data to be ready.
+			while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
+			// TH: reads virtual register.
+			hw_low_v_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_LOW_);
+			hw_high_v_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_RAW_HIGH_);
+			hw_all_v_  = (((uint16_t)hw_low_v_)<<8) | ((uint16_t)hw_high_v_);
+
+			// TH: reads virtual register.
+			hw_low_b_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_RAW_LOW_);
+			hw_high_b_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_RAW_HIGH_);
+			hw_all_b_  = (((uint16_t)hw_low_b_)<<8) | ((uint16_t)hw_high_b_);
+
+			// TH: reads virtual register.
+			hw_low_g_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_RAW_LOW_);
+			hw_high_g_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_RAW_HIGH_);
+			hw_all_g_  = (((uint16_t)hw_low_g_)<<8) | ((uint16_t)hw_high_g_);
+
+			// TH: reads virtual register.
+			hw_low_y_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_RAW_LOW_);
+			hw_high_y_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_RAW_HIGH_);
+			hw_all_y_  = (((uint16_t)hw_low_y_)<<8) | ((uint16_t)hw_high_y_);
+
+			// TH: reads virtual register.
+			hw_low_o_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_RAW_LOW_);
+			hw_high_o_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_RAW_HIGH_);
+			hw_all_o_  = (((uint16_t)hw_low_o_)<<8) | ((uint16_t)hw_high_o_);
+
+			// TH: reads virtual register.
+			hw_low_r_  = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_RAW_LOW_);
+			hw_high_r_ = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_RAW_HIGH_);
+			hw_all_r_  = (((uint16_t)hw_low_r_)<<8) | ((uint16_t)hw_high_r_);
+
+			;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+			// TH: experimental: disables LED control.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+			);
+
+			// TH: lits TFT LCD unconditionally.
+			timer1_OC1A_disabled_high_();
+
+			ptr_str_ = "VRAW";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_v_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			ptr_str_ = "BRAW";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_b_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			ptr_str_ = "GRAW";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_g_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			ptr_str_ = "YRAW";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_y_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			ptr_str_ = "ORAW";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_o_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			ptr_str_ = "RRAW";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_r_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+			// TH: starts TIMER 1 for power considerations.
+			TC1init();
+
+			if(DEBUG_TFT_CTC_==1){
+				// TH: 16MHz, no pre-scaling.
+				TCCR1B |= (1<<CS10);
+			}//if DEBUG_TFT_CTC_.
+
+			if(DEBUG_) PCprint("\n[Lab 11]: Read Raw ALL Ended.");
+			val = 0;
+
+		}//if N_CHAR_.
+
+		else if(val==P_CHAR_){
+			
+			if(DEBUG_) PCprint("\n[Lab 11]: Read Calibrated ALL Started.");
+
+			uint8_t  hw_0_v_    = 0;
+			uint8_t  hw_1_v_    = 0;
+			uint8_t  hw_2_v_    = 0;
+			uint8_t  hw_3_v_    = 0;
+			uint32_t hw_all_v_  = 0;
+			uint8_t  hw_0_b_    = 0;
+			uint8_t  hw_1_b_    = 0;
+			uint8_t  hw_2_b_    = 0;
+			uint8_t  hw_3_b_    = 0;
+			uint32_t hw_all_b_  = 0;
+			uint8_t  hw_0_g_    = 0;
+			uint8_t  hw_1_g_    = 0;
+			uint8_t  hw_2_g_    = 0;
+			uint8_t  hw_3_g_    = 0;
+			uint32_t hw_all_g_  = 0;
+			uint8_t  hw_0_y_    = 0;
+			uint8_t  hw_1_y_    = 0;
+			uint8_t  hw_2_y_    = 0;
+			uint8_t  hw_3_y_    = 0;
+			uint32_t hw_all_y_  = 0;
+			uint8_t  hw_0_o_    = 0;
+			uint8_t  hw_1_o_    = 0;
+			uint8_t  hw_2_o_    = 0;
+			uint8_t  hw_3_o_    = 0;
+			uint32_t hw_all_o_  = 0;
+			uint8_t  hw_0_r_    = 0;
+			uint8_t  hw_1_r_    = 0;
+			uint8_t  hw_2_r_    = 0;
+			uint8_t  hw_3_r_    = 0;
+			uint32_t hw_all_r_  = 0;
+
+			// TH: turns TFT LCD OFF for now.
+			timer1_OC1A_disabled_low_();
+
+			// TH: experimental: high current limit.
+			// TH: up to 100mA -> more precise.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_
+			| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+			| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+			| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+			);
+
+			// TH: discards previous integration: DATA_RDY gets cleared when at least one sensor register been read.
+			while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+			as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_0_);
+			
+			// TH: waits for sensor data to be ready.
+			while( (as7262_read_virtual_(I2C_AS72XX_VIRTUAL_CONTROL_) & I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_) == 0 );
+
+			// TH: reads virtual register.
+			hw_0_v_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_0_);
+			hw_1_v_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_1_);
+			hw_2_v_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_2_);
+			hw_3_v_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_V_CAL_ADDR_3_);
+			hw_all_v_ = (((uint32_t)hw_0_v_)<<24) | (((uint32_t)hw_1_v_)<<16) | (((uint32_t)hw_2_v_)<<8) | (((uint32_t)hw_3_v_)<<0);
+
+			// TH: reads virtual register.
+			hw_0_b_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_CAL_ADDR_0_);
+			hw_1_b_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_CAL_ADDR_1_);
+			hw_2_b_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_CAL_ADDR_2_);
+			hw_3_b_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_B_CAL_ADDR_3_);
+			hw_all_b_ = (((uint32_t)hw_0_b_)<<24) | (((uint32_t)hw_1_b_)<<16) | (((uint32_t)hw_2_b_)<<8) | (((uint32_t)hw_3_b_)<<0);
+
+			// TH: reads virtual register.
+			hw_0_g_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_CAL_ADDR_0_);
+			hw_1_g_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_CAL_ADDR_1_);
+			hw_2_g_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_CAL_ADDR_2_);
+			hw_3_g_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_G_CAL_ADDR_3_);
+			hw_all_g_ = (((uint32_t)hw_0_g_)<<24) | (((uint32_t)hw_1_g_)<<16) | (((uint32_t)hw_2_g_)<<8) | (((uint32_t)hw_3_g_)<<0);
+
+			// TH: reads virtual register.
+			hw_0_y_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_CAL_ADDR_0_);
+			hw_1_y_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_CAL_ADDR_1_);
+			hw_2_y_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_CAL_ADDR_2_);
+			hw_3_y_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_Y_CAL_ADDR_3_);
+			hw_all_y_ = (((uint32_t)hw_0_y_)<<24) | (((uint32_t)hw_1_y_)<<16) | (((uint32_t)hw_2_y_)<<8) | (((uint32_t)hw_3_y_)<<0);
+
+			// TH: reads virtual register.
+			hw_0_o_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_CAL_ADDR_0_);
+			hw_1_o_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_CAL_ADDR_1_);
+			hw_2_o_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_CAL_ADDR_2_);
+			hw_3_o_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_O_CAL_ADDR_3_);
+			hw_all_o_ = (((uint32_t)hw_0_o_)<<24) | (((uint32_t)hw_1_o_)<<16) | (((uint32_t)hw_2_o_)<<8) | (((uint32_t)hw_3_o_)<<0);
+
+			// TH: reads virtual register.
+			hw_0_r_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_CAL_ADDR_0_);
+			hw_1_r_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_CAL_ADDR_1_);
+			hw_2_r_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_CAL_ADDR_2_);
+			hw_3_r_   = as7262_read_virtual_(I2C_AS72XX_VIRTUAL_R_CAL_ADDR_3_);
+			hw_all_r_ = (((uint32_t)hw_0_r_)<<24) | (((uint32_t)hw_1_r_)<<16) | (((uint32_t)hw_2_r_)<<8) | (((uint32_t)hw_3_r_)<<0);
+
+			;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+			// TH: experimental: disables LED control.
+			as7262_write_virtual_(
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+			I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+			);
+
+			// TH: lits TFT LCD unconditionally.
+			timer1_OC1A_disabled_high_();
+
+			/*
+			ptr_str_ = "VCAL";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_v_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			*/
+			// TH: converts hex to float.
+			hw_all__ = convert_hex_to_float_(hw_all_v_);
+			ptr_str_ = "VCAL FLOAT";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) floor(hw_all__);
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			/*
+			ptr_str_ = "BCAL";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_b_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			*/
+			// TH: converts hex to float.
+			hw_all__ = convert_hex_to_float_(hw_all_b_);
+			ptr_str_ = "BCAL FLOAT";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) floor(hw_all__);
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			/*
+			ptr_str_ = "GCAL";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_g_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			*/
+			// TH: converts hex to float.
+			hw_all__ = convert_hex_to_float_(hw_all_g_);
+			ptr_str_ = "GCAL FLOAT";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) floor(hw_all__);
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			/*
+			ptr_str_ = "YCAL";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_y_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			*/
+			// TH: converts hex to float.
+			hw_all__ = convert_hex_to_float_(hw_all_y_);
+			ptr_str_ = "YCAL FLOAT";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) floor(hw_all__);
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			/*
+			ptr_str_ = "OCAL";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_o_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			*/
+			// TH: converts hex to float.
+			hw_all__ = convert_hex_to_float_(hw_all_o_);
+			ptr_str_ = "OCAL FLOAT";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) floor(hw_all__);
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			/*
+			ptr_str_ = "RCAL";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) hw_all_r_;
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			*/
+			// TH: converts hex to float.
+			hw_all__ = convert_hex_to_float_(hw_all_r_);
+			ptr_str_ = "RCAL FLOAT";
+			write_row_text_(ptr_str_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+			number_  = (uint32_t) floor(hw_all__);
+			write_row_number_(number_, col_s_high_, col_s_low_, col_e_high_, col_e_low_, row_s_high_, row_s_low_, row_e_high_, row_e_low_);
+
+			;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+			// TH: starts TIMER 1 for power considerations.
+			TC1init();
+
+			if(DEBUG_TFT_CTC_==1){
+				// TH: 16MHz, no pre-scaling.
+				TCCR1B |= (1<<CS10);
+			}//if DEBUG_TFT_CTC_.
+
+			if(DEBUG_) PCprint("\n[Lab 11]: Read Calibrated ALL Ended.");
+			val = 0;
+
+		}//if P_CHAR_.
+
+		else if(val==Q_CHAR_){
+			
+			if(DEBUG_) PCprint("\n[Lab 11]: Write Pattern 0 Started.");
+
+			// TH: lits TFT LCD unconditionally.
+			timer1_OC1A_disabled_high_();
+
+			write_pattern_0_();
+
+			// TH: initializes coordinates.
+
+			row_s_high_=ST77XX_ROW_S_HIGH_;
+			row_s_low_ =ST77XX_ROW_S_LOW_MIN_;
+			row_e_high_=ST77XX_ROW_E_HIGH_;
+			row_e_low_ =row_s_low_+6;
+
+			col_s_high_=ST77XX_COL_S_HIGH_;
+			col_s_low_ =ST77XX_COL_S_LOW_MIN_ ;
+			col_e_high_=ST77XX_COL_E_HIGH_;
+			col_e_low_ =col_s_low_+4;
+
+			// TH: starts TIMER 1 for power considerations.
+			TC1init();
+
+			if(DEBUG_TFT_CTC_==1){
+				// TH: 16MHz, no pre-scaling.
+				TCCR1B |= (1<<CS10);
+			}//if DEBUG_TFT_CTC_.
+
+			if(DEBUG_) PCprint("\n[Lab 11]: Write Pattern 0 Ended.");
+			val = 0;
+
+		}//if Q_CHAR_.
 
 		;
 
@@ -1349,6 +2130,29 @@ void as7262_init_(void){
 	_delay_ms(101);
 	PORTA |=  (1<<PORTA1);
 
+	// TH: this delay is critical for success !!
+	_delay_ms(1000);
+
+	/*
+	// IMPORTANT: low current limit.
+	as7262_write_virtual_(I2C_AS72XX_VIRTUAL_LED_CONTROL_,I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_);
+	*/
+
+	// TH: experimental: high current limit.
+	// TH: 50mA max with power supply from AVR Dragon board when both TFT LCD and LED turned ON at the same time.
+	as7262_write_virtual_(
+		I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+		I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_10_
+		| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_
+		| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_
+		| I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_
+	);
+
+	/*
+	// TH: experimental -> low power, less precise.
+	as7262_write_virtual_(I2C_AS72XX_VIRTUAL_INT_T_,I2C_AS72XX_VIRTUAL_INT_T_VALUE_7F_);
+	*/
+
 }//as7262_init_.
 
 uint8_t as7262_read_virtual_(uint8_t virtual_){
@@ -1432,7 +2236,7 @@ void TWIstart(void){
 
 	// TH: logs error message.
 	if ((TWSR & 0xF8) !=  TW_START) {
-		PCprint("\n[Lab 11]: TWIstart Failed.");
+//		PCprint("\n[Lab 11]: TWIstart Failed.");
 		exit(1);
 //		errPtr= sprintf(errCode+errPtr, "START_ERROR TWSR=0x%x;\r\n", (TWSR & 0xF8));
 	}//if error.
@@ -1457,7 +2261,7 @@ void TWIwrite(uint8_t data, uint8_t expected){
 
 	// TH: logs error message.
 	if ((TWSR & 0xF8) !=  expected) {
-		PCprint("\n[Lab 11]: TWIwrite Failed.");
+//		PCprint("\n[Lab 11]: TWIwrite Failed.");
 		exit(1);
 //		errPtr= sprintf(errCode+errPtr, "WRITE_ERROR TWSR=0x%x;\r\n", (TWSR & 0xF8));
 	}//if error.
@@ -1484,9 +2288,6 @@ void TWIstop(void){
 
 uint8_t TWIread_nack(uint8_t expected){
 	
-	// TH: waits for given number of integration times (i.e. 2.8msec each).
-	_delay_ms(6);
-
 	// TH: experimental.
 	// TH: returns NACK when data received in Master Receiver mode.
 	TWCR &= (~(1<<TWSTA)) & (~(1<<TWSTO))  & (~(1<<TWEA));
@@ -1504,7 +2305,7 @@ uint8_t TWIread_nack(uint8_t expected){
 
 	// TH: logs error message.
 	if ((TWSR & 0xF8) !=  expected) {
-		PCprint("\n[Lab 11]: TWIread_nack Failed.");
+//		PCprint("\n[Lab 11]: TWIread_nack Failed.");
 		exit(1);
 //		errPtr= sprintf(errCode+errPtr, "READ_ERROR TWSR=0x%x;\r\n", (TWSR & 0xF8));
 	}//if error.
@@ -1560,14 +2361,14 @@ float convert_hex_to_float_(uint32_t hex_){
 }//convert_hex_to_float_.
 
 void print_calibrated_(float hw_all__){
-/*
+
 	uint32_t hw_all_t_= (uint32_t) floor(hw_all__);
 	uint8_t i;
 	char tmpstr[32];
 	sprintf(tmpstr, "0x%02x%02x%02x%02x", (uint8_t)(hw_all_t_>>24),(uint8_t)(hw_all_t_>>16),(uint8_t)(hw_all_t_>>8),(uint8_t)(hw_all_t_>>0));
 	i=0;
 	while(tmpstr[i]) uart_send_(tmpstr[i++]);
-*/
+
 }
 
 void spi_init_(void){
@@ -1625,9 +2426,6 @@ void spi_init_(void){
 
 }//spi_init_.
 
-
-
-// helps invoke OC1A ISR every 1 seconds.
 void TC1init(void){
 	
 	if(DEBUG_TFT_CTC_==0) return;
@@ -1665,7 +2463,8 @@ ISR(TIMER1_COMPA_vect){
 	
 	if(DEBUG_TFT_CTC_==0) return;
 
-	if(timer1_resolution<TIMER1_TARGET_CTC_1SEC*10){
+	// TH: checks if 10 seconds have elapsed.
+	if(timer1_resolution<TIMER1_TARGET_CTC_10SEC){
 		timer1_resolution++; return;
 	}//if less than.
 
@@ -1679,7 +2478,16 @@ ISR(TIMER1_COMPA_vect){
 
 	// TH: experimental.
 	// TH: sets or clears on next match.
-	TCCR1A ^= (1<<COM1A0);
+//	TCCR1A ^= (1<<COM1A0);
+
+	// TH: stops TIMER 1, disables OC1A, drives PORT low manually.
+	timer1_OC1A_disabled_low_();
+
+	// TH: experimental: disables LED control.
+	as7262_write_virtual_(
+	I2C_AS72XX_VIRTUAL_LED_CONTROL_,
+	I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_
+	);
 
 	// TH: resets timer resolution.
 	timer1_resolution=0;
@@ -1729,7 +2537,6 @@ void spi_write_seq_cmd_(uint8_t cmd_){
 
 	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
 	PORTB  &= (~(1<<PORTB4));
-//	_delay_us(1);
 	
 	// TH: starts SPI clock generator.
 	SPDR0 = cmd_;
@@ -1739,7 +2546,6 @@ void spi_write_seq_cmd_(uint8_t cmd_){
 
 	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
 	PORTB  |= (1<<PORTB4);
-//	_delay_us(1);
 
 }//spi_write_seq_cmd_.
 
@@ -1750,7 +2556,6 @@ void spi_write_seq_cmd_param_(uint8_t cmd_, uint8_t data_){
 
 	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
 	PORTB  &= (~(1<<PORTB4));
-//	_delay_us(1);
 	
 	// TH: starts SPI clock generator.
 	SPDR0 = cmd_;
@@ -1760,14 +2565,12 @@ void spi_write_seq_cmd_param_(uint8_t cmd_, uint8_t data_){
 
 	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
 	PORTB  |= (1<<PORTB4);
-//	_delay_us(1);
 
 	// TH: sets D/C bit for data.
 	PORTA  |= (1<<PORTA3);
 
 	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
 	PORTB  &= (~(1<<PORTB4));
-//	_delay_us(1);
 	
 	// TH: starts SPI clock generator.
 	SPDR0 = data_;
@@ -1777,7 +2580,6 @@ void spi_write_seq_cmd_param_(uint8_t cmd_, uint8_t data_){
 
 	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
 	PORTB  |= (1<<PORTB4);
-//	_delay_us(1);
 
 }//spi_write_seq_cmd_param_.
 
@@ -1788,7 +2590,6 @@ void spi_write_seq_data_(uint8_t data_){
 
 	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
 	PORTB  &= (~(1<<PORTB4));
-//	_delay_us(1);
 	
 	// TH: starts SPI clock generator.
 	SPDR0 = data_;
@@ -1798,7 +2599,6 @@ void spi_write_seq_data_(uint8_t data_){
 
 	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
 	PORTB  |= (1<<PORTB4);
-//	_delay_us(1);
 
 }//spi_write_seq_data_.
 
@@ -1845,7 +2645,6 @@ void write_pattern_0_(void){
 
 	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
 	PORTB  &= (~(1<<PORTB4));
-	//	_delay_us(1);
 
 	for(uint16_t index=width_*height_/2; index>0; index--){
 
@@ -1871,7 +2670,6 @@ void write_pattern_0_(void){
 
 	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
 	PORTB  |= (1<<PORTB4);
-	//	_delay_us(1);
 
 	color_   = ST77XX_COLOR_0_;
 	color_2_ = ((uint8_t)(color_>>16)) & 0x03;
@@ -1880,7 +2678,6 @@ void write_pattern_0_(void){
 
 	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
 	PORTB  &= (~(1<<PORTB4));
-	//	_delay_us(1);
 
 	for(uint16_t index=width_*height_/2; index>0; index--){
 
@@ -1906,139 +2703,6 @@ void write_pattern_0_(void){
 
 	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
 	PORTB  |= (1<<PORTB4);
-	//	_delay_us(1);
-
-	/*
-	
-	// TH: sets column window.
-	spi_write_seq_cmd_(ST77XX_CASET);
-
-	// TH: sends high byte and low byte for start column.
-	spi_write_seq_data_(ST77XX_COL_S_HIGH_);
-	spi_write_seq_data_(ST77XX_COL_S_LOW_ );
-
-	// TH: sends high byte and low byte for end column.
-	spi_write_seq_data_(ST77XX_COL_E_HIGH_);
-	spi_write_seq_data_(ST77XX_COL_E_LOW_MAX_THEORECTICAL_);
-
-	// TH: sets row window.
-	spi_write_seq_cmd_(ST77XX_RASET);
-
-	// TH: sends high byte and low byte for start row.
-	spi_write_seq_data_(ST77XX_ROW_S_HIGH_);
-	spi_write_seq_data_(ST77XX_ROW_E_LOW_MAX_THEORECTICAL_/8);
-
-	// TH: sends high byte and low byte for end row.
-	spi_write_seq_data_(ST77XX_ROW_E_HIGH_);
-	spi_write_seq_data_(ST77XX_ROW_E_LOW_MAX_THEORECTICAL_/4);
-	
-	color_   = 0x00000;
-	color_2_ = ((uint8_t)(color_>>16)) & 0x03;
-	color_1_ = ((uint8_t)(color_>> 8)) & 0xFF;
-	color_0_ = ((uint8_t)(color_>> 0)) & 0xFF;
-
-	// TH: sends write memory command.
-	spi_write_seq_cmd_(ST77XX_RAMWR);
-	
-	// TH: sets D/C bit for data.
-	PORTA  |= (1<<PORTA3);
-
-	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
-	PORTB  &= (~(1<<PORTB4));
-//	_delay_us(1);
-
-	for(uint16_t index=width_*height_/2; index>0; index--){
-
-		// TH: starts SPI clock generator.
-		SPDR0 = color_2_;
-
-		// TH: waits for any previous transmission to complete.
-		while ( !(SPSR0 & (1<<SPIF0)) );
-
-		// TH: starts SPI clock generator.
-		SPDR0 = color_1_;
-
-		// TH: waits for any previous transmission to complete.
-		while ( !(SPSR0 & (1<<SPIF0)) );
-
-		// TH: starts SPI clock generator.
-		SPDR0 = color_0_;
-
-		// TH: waits for any previous transmission to complete.
-		while ( !(SPSR0 & (1<<SPIF0)) );
-
-	}//for index.
-
-	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
-	PORTB  |= (1<<PORTB4);
-//	_delay_us(1);
-
-	*/
-
-	/*
-	// TH: sets column window.
-	spi_write_seq_cmd_(ST77XX_CASET);
-
-	// TH: sends high byte and low byte for start column.
-	spi_write_seq_data_(ST77XX_COL_S_HIGH_);
-	spi_write_seq_data_(ST77XX_COL_E_LOW_MAX_THEORECTICAL_/2 );
-
-	// TH: sends high byte and low byte for end column.
-	spi_write_seq_data_(ST77XX_COL_E_HIGH_);
-	spi_write_seq_data_(ST77XX_COL_E_LOW_MAX_THEORECTICAL_/2+4);
-
-	// TH: sets row window.
-	spi_write_seq_cmd_(ST77XX_RASET);
-
-	// TH: sends high byte and low byte for start row.
-	spi_write_seq_data_(ST77XX_ROW_S_HIGH_);
-	spi_write_seq_data_(ST77XX_ROW_E_LOW_MAX_THEORECTICAL_/8);
-
-	// TH: sends high byte and low byte for end row.
-	spi_write_seq_data_(ST77XX_ROW_E_HIGH_);
-	spi_write_seq_data_(ST77XX_ROW_E_LOW_MAX_THEORECTICAL_/8+6);
-	
-	color_   = 0x0000;
-	color_2_ = ((uint8_t)(color_>>16)) & 0x03;
-	color_1_ = ((uint8_t)(color_>> 8)) & 0xFF;
-	color_0_ = ((uint8_t)(color_>> 0)) & 0xFF;
-
-	// TH: sends write memory command.
-	spi_write_seq_cmd_(ST77XX_RAMWR);
-	
-	// TH: sets D/C bit for data.
-	PORTA  |= (1<<PORTA3);
-
-	// TH: enables byte-shifting (i.e. pulls CS_BAR low).
-	PORTB  &= (~(1<<PORTB4));
-	//	_delay_us(1);
-
-	for(uint16_t index=width_*height_/2; index>0; index--){
-
-		// TH: starts SPI clock generator.
-		SPDR0 = color_2_;
-
-		// TH: waits for any previous transmission to complete.
-		while ( !(SPSR0 & (1<<SPIF0)) );
-
-		// TH: starts SPI clock generator.
-		SPDR0 = color_1_;
-
-		// TH: waits for any previous transmission to complete.
-		while ( !(SPSR0 & (1<<SPIF0)) );
-
-		// TH: starts SPI clock generator.
-		SPDR0 = color_0_;
-
-		// TH: waits for any previous transmission to complete.
-		while ( !(SPSR0 & (1<<SPIF0)) );
-
-	}//for index.
-
-	// TH: disables byte-shifting (i.e. pulls CS_BAR high).
-	PORTB  |= (1<<PORTB4);
-	//	_delay_us(1);
-	*/
 
 }//write_pattern_0_.
 
@@ -2552,5 +3216,72 @@ void write_pattern_1_(void){
 	PORTB  |= (1<<PORTB4);
 
 }//write_pattern_1_.
+/*
+ISR(PCINT0_vect){
+	
+	// TH: latches ONLY 1st toggle.
+	// TH: interrupt capture versus 'flash' :)
+	dip_changed_ = 1;
+
+}//PCINT0_vect.
+*/
+void as7262_write_virtual_(uint8_t virtual_,uint8_t d_){
+	
+	volatile uint8_t status_;
+
+	while (1){
+		
+		// TH: reads slave I²C status to see if the read buffer is ready.
+		status_ = i2cm_read(I2C_AS72XX_SLAVE_ADDR_REG_STATUS_);
+
+		if ((status_ & (1<<I2C_AS72XX_SLAVE_STATUS_TX_VALID_)) == 0) break;
+		_delay_us(1);
+
+	}//while 1.
+
+	// TH: issues pending write request on given virtual register.
+	i2cm_write(I2C_AS72XX_SLAVE_ADDR_REG_WRITE_, virtual_|0x80);
+
+	while (1){
+		
+		// TH: reads slave I²C status to see if the read buffer is ready.
+		status_ = i2cm_read(I2C_AS72XX_SLAVE_ADDR_REG_STATUS_);
+
+		if ((status_ & (1<<I2C_AS72XX_SLAVE_STATUS_TX_VALID_)) == 0) break;
+		_delay_us(1);
+
+	}//while 1.
+
+	i2cm_write(I2C_AS72XX_SLAVE_ADDR_REG_WRITE_, d_);
+
+}//as7262_write_virtual_.
+
+void timer1_OC1A_disabled_high_(){
+	
+	// TH: initially Timer is STOPPED.
+	TCCR1B &= (~(1<<CS12)) & (~(1<<CS11)) & (~(1<<CS10));
+
+	// TH: disables OC1A for now.
+	TCCR1A &=   (~((1<<COM1A1)))  &    (~((1<<COM1A0)));
+	
+	// TH: sets Port D: Pin X as output.
+	DDRD   |=   (1<<DDD5);
+	PORTD  |=   (1<<PORTD5) ;
+
+}//timer1_OC1A_disabled_high_.
+
+void timer1_OC1A_disabled_low_(){
+	
+	// TH: initially Timer is STOPPED.
+	TCCR1B &= (~(1<<CS12)) & (~(1<<CS11)) & (~(1<<CS10));
+
+	// TH: disables OC1A for now.
+	TCCR1A &=   (~((1<<COM1A1)))  &    (~((1<<COM1A0)));
+	
+	// TH: sets Port D: Pin X as output.
+	DDRD   |=      (1<<DDD5);
+	PORTD  &=   (~((1<<PORTD5))) ;
+
+}//timer1_OC1A_disabled_low_.
 
 ;

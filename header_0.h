@@ -68,10 +68,14 @@ volatile uint8_t val=0;
 #define R_CHAR_ 0x52 // TH: raw R.
 #define M_CHAR_ 0x4D // TH: calibrated R.
 
+#define N_CHAR_ 0x4E // TH: reads all raw data.
+#define P_CHAR_ 0x50 // TH: reads all calibrated data.
+#define Q_CHAR_ 0x51 // TH: clears screen.
+
 /////////////////////////////////////////////////////
 
 // TH: prints serial.
-void PCprint(char strbuf[200]);
+void PCprint(char strbuf[]);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -114,9 +118,21 @@ void PCinit(void);
 #define I2C_AS72XX_VIRTUAL_FW_VERSION_HIGH_   0x03
 
 #define I2C_AS72XX_VIRTUAL_CONTROL_           0x04
-#define I2C_AS72XX_VIRTUAL_INT_T_             0x05
+#define I2C_AS72XX_VIRTUAL_CONTROL_DATA_RDY_  0x02
+#define I2C_AS72XX_VIRTUAL_CONTROL_INT_       0x40
+
+#define I2C_AS72XX_VIRTUAL_INT_T_              0x05
+#define I2C_AS72XX_VIRTUAL_INT_T_VALUE_7F_     0x7F
+
 #define I2C_AS72XX_VIRTUAL_DEVICE_TEMP_       0x06
-#define I2C_AS72XX_VIRTUAL_LED_CONTROL_       0x07
+
+#define I2C_AS72XX_VIRTUAL_LED_CONTROL_             0x07
+#define I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_11_  0x30
+#define I2C_AS72XX_VIRTUAL_LED_CONTROL_ICL_DRV_10_  0x20
+#define I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_DRV_     0x08
+#define I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_11_  0x06
+#define I2C_AS72XX_VIRTUAL_LED_CONTROL_LED_IND_     0x01
+#define I2C_AS72XX_VIRTUAL_LED_CONTROL_DEFAULT_     0x00
 
 #define I2C_AS72XX_VIRTUAL_V_RAW_LOW_         0x08
 #define I2C_AS72XX_VIRTUAL_V_RAW_HIGH_        0x09
@@ -172,6 +188,9 @@ void as7262_init_(void);
 // TH: reads virtual register.
 uint8_t as7262_read_virtual_(uint8_t);
 
+// TH: writes virtual register.
+void as7262_write_virtual_(uint8_t,uint8_t);
+
 // TH: implements I2C master receive.
 uint8_t i2cm_read(uint8_t);
 
@@ -187,6 +206,9 @@ float hw_all__ = 0;
 // TH: prints calibrated value from float.
 void print_calibrated_(float);
 
+// TH: tracks CONTROL register.
+volatile uint8_t ctl_=0;
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #if 0
@@ -197,7 +219,7 @@ void print_calibrated_(float);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if 0
+#if 1
 #define DEBUG_TFT_CTC_ 1
 #else
 #define DEBUG_TFT_CTC_ 0
@@ -211,13 +233,20 @@ void print_calibrated_(float);
 #define TIMER1_OV_RESOLUTION  ((float)((float)1UL)/((float)F_CPU))*TIMER1_MAX
 
 // TH: defines resolution for Timer 1 CTC mode, @ 16MHz.
-#define TIMER1_TARGET_CTC_1SEC (float)(((float)1UL)/((float)TIMER1_OV_RESOLUTION))
+#define TIMER1_TARGET_CTC_1SEC    (float)(((float)1UL)/((float)TIMER1_OV_RESOLUTION))
+#define TIMER1_TARGET_CTC_10SEC   TIMER1_TARGET_CTC_1SEC*10
 
 // TH: counts interrupts.
 volatile float timer1_resolution;
 
 // TH: initializes TIMER 1.
 void TC1init(void);
+
+// TH: stops TIMER 1, disables OC1A, drives PORT high manually.
+void timer1_OC1A_disabled_high_();
+
+// TH: stops TIMER 1, disables OC1A, drives PORT low manually.
+void timer1_OC1A_disabled_low_();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -320,6 +349,7 @@ const uint8_t FONT_CHAR[][ST77XX_CHAR_SIZE_ROW_] PROGMEM = {
 // TH: specifies volatile data for debug ...
 volatile uint8_t data;
 
+// TH: implements associate array for bit-map matching.
 #define NCHARS (sizeof tab_char_ / sizeof tab_char_[0])
 const struct char_{char c_; uint8_t i_;} tab_char_[]  = {
 {
@@ -399,9 +429,13 @@ const struct char_{char c_; uint8_t i_;} tab_char_[]  = {
 },
 {
 'Z',25
+},
+{
+' ',36
 }
 };
 
+// TH: implements associate array for bit-map matching.
 #define NNUMS (sizeof tab_num_ / sizeof tab_num_[0])
 const struct num_{uint8_t n_; uint8_t i_;} tab_num_[]  = {
 {0x0,26},
